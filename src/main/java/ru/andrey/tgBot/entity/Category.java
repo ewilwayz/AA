@@ -39,5 +39,3 @@ public class Category {
         this.parent = parent;
     }
 }
-
-
