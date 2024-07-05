@@ -11,13 +11,13 @@ public class Client {
     @Column(nullable = false, unique = true)
     private Long externalId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 255)
     private String fullName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 15)
     private String phoneNumber;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 400)
     private String address;
 
     public Long getId() {

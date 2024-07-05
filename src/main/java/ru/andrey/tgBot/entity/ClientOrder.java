@@ -1,9 +1,9 @@
 package ru.andrey.tgBot.entity;
-
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "clientOrder")
+@Table(name = "client_order")
 public class ClientOrder {
     @Id
     @GeneratedValue
@@ -16,8 +16,8 @@ public class ClientOrder {
     @Column(nullable = false)
     private Integer status;
 
-    @Column(nullable = false)
-    private Double total;
+    @Column(nullable = false, precision = 15, scale = 2)
+    private BigDecimal total;
 
     public Long getId() {
         return id;
@@ -43,11 +43,11 @@ public class ClientOrder {
         this.status = status;
     }
 
-    public Double getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 }

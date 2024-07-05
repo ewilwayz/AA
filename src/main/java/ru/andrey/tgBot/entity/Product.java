@@ -1,7 +1,6 @@
 package ru.andrey.tgBot.entity;
-
 import jakarta.persistence.*;
-
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product")
@@ -14,14 +13,14 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 50)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 400)
     private String description;
 
-    @Column(nullable = false)
-    private Double price;
+    @Column(nullable = false, precision = 15, scale = 2)
+    private BigDecimal price;
 
     public Long getId() {
         return id;
@@ -55,11 +54,11 @@ public class Product {
         this.description = description;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }
