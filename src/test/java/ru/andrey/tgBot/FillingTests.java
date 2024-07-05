@@ -1,9 +1,9 @@
 package ru.andrey.tgBot;
 
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+
+import org.junit.jupiter.api.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.boot.test.context.*;
 import ru.andrey.tgBot.entity.Category;
 import ru.andrey.tgBot.entity.Client;
 import ru.andrey.tgBot.entity.Product;
@@ -15,6 +15,8 @@ import ru.andrey.tgBot.repository.ProductRepository;
 
 public class FillingTests {
 
+    @Autowired
+    private ClientRepository clientRepository;
 
     @Autowired
     private CategoryRepository categoryRepository;
@@ -22,8 +24,24 @@ public class FillingTests {
     @Autowired
     private ProductRepository productRepository;
 
-    @Autowired
-    private ClientRepository clientRepository;
+    //--- Добавление двух клиентов ---
+    @Test
+    void createTwoClients() {
+
+        Client client1 = new Client();
+        client1.setAddress("Балаклава");
+        client1.setExternalId(5L);
+        client1.setPhoneNumber("89781452404");
+        client1.setFullName("Яковенко Максим Игоревич");
+        clientRepository.save(client1);
+
+        Client client2 = new Client();
+        client2.setAddress("Ялта");
+        client2.setExternalId(7L);
+        client2.setPhoneNumber("89782537512");
+        client2.setFullName("Романов Владимир Сергеевич");
+        clientRepository.save(client2);
+    }
 
     @Test
     void createCategoriesAndProducts() {
@@ -104,7 +122,7 @@ public class FillingTests {
 
         //Создание подкатегории для других
         Category otherDrinks = new Category();
-        otherDrinks.setName("Соки");
+        otherDrinks.setName("Другие напитки");
         otherDrinks.setParent(drinks);
         categoryRepository.save(otherDrinks);
 
@@ -369,19 +387,6 @@ public class FillingTests {
 
     }
 
-    void createTwoClients() {
-        Client client1 = new Client();
-        client1.setAddress("Балаклава");
-        client1.setExternalId(1L);
-        client1.setPhoneNumber("89781452404");
-        client1.setFullName("Яковенко Максим Игоревич");
-        clientRepository.save(client1);
-        Client client2 = new Client();
-        client2.setAddress("Ялта");
-        client2.setExternalId(2L);
-        client2.setPhoneNumber("89782537512");
-        client2.setFullName("Романов Владимир Сергеевич");
-        clientRepository.save(client2);
-    }
+
 
 }

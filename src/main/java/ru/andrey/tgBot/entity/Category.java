@@ -1,9 +1,8 @@
 package ru.andrey.tgBot.entity;
-
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Category")
+@Table(name = "category")
 public class Category {
     @Id
     @GeneratedValue
