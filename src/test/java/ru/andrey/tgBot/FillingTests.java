@@ -371,16 +371,16 @@ public class FillingTests {
 
     void createTwoClients() {
         Client client1 = new Client();
-        client1.setAddress("Симферополь");
+        client1.setAddress("Балаклава");
         client1.setExternalId(1L);
-        client1.setPhoneNumber("89780010101");
-        client1.setFullName("Клочков Богдан Константинович");
+        client1.setPhoneNumber("89781452404");
+        client1.setFullName("Яковенко Максим Игоревич");
         clientRepository.save(client1);
         Client client2 = new Client();
-        client2.setAddress("Севастополь");
+        client2.setAddress("Ялта");
         client2.setExternalId(2L);
-        client2.setPhoneNumber("89780020202");
-        client2.setFullName("Лапицкая Мария Романовна");
+        client2.setPhoneNumber("89782537512");
+        client2.setFullName("Романов Владимир Сергеевич");
         clientRepository.save(client2);
     }
 
