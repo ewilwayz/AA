@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.andrey.tgBot.entity.Category;
+import ru.andrey.tgBot.entity.Client;
 import ru.andrey.tgBot.entity.Product;
 import ru.andrey.tgBot.repository.CategoryRepository;
+import ru.andrey.tgBot.repository.ClientRepository;
 import ru.andrey.tgBot.repository.ProductRepository;
 
 @SpringBootTest
@@ -20,8 +22,10 @@ public class FillingTests {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ClientRepository clientRepository;
+
     @Test
-    @Transactional
     void createCategoriesAndProducts() {
         //--- Создание основных категорий ---
         Category pizza = new Category(); //--Пицца
@@ -364,4 +368,20 @@ public class FillingTests {
         productRepository.save(drinksOther3);
 
     }
+
+    void createTwoClients() {
+        Client client1 = new Client();
+        client1.setAddress("Симферополь");
+        client1.setExternalId(1L);
+        client1.setPhoneNumber("89780010101");
+        client1.setFullName("Клочков Богдан Константинович");
+        clientRepository.save(client1);
+        Client client2 = new Client();
+        client2.setAddress("Севастополь");
+        client2.setExternalId(2L);
+        client2.setPhoneNumber("89780020202");
+        client2.setFullName("Лапицкая Мария Романовна");
+        clientRepository.save(client2);
+    }
+
 }
