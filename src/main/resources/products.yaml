@@ -1,0 +1,17 @@
+clients:
+  - externalId: 4
+    fullName: имя клиента
+    phone: номер
+    address: Балаклава
+categories:
+  - name: имя категории
+    products:
+      - name: имя продукта
+        description:  описание продукта
+        price: 499.99
+    subcategories:
+      - name: имя подкатегории
+        products:
+          - name: имя продукта2
+            description: описание
+            price: 225.69
