@@ -1,4 +1,6 @@
 package ru.andrey.tgBot;
+
+
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.context.*;
@@ -12,6 +14,7 @@ import ru.andrey.tgBot.repository.ProductRepository;
 import java.math.BigDecimal;
 
 @SpringBootTest
+
 public class FillingTests {
 
     @Autowired
@@ -131,7 +134,7 @@ public class FillingTests {
         Product pizza1 = new Product();
         pizza1.setName("Маргарита");
         pizza1.setDescription("Традиционная итальянская пицца");
-        pizza1.setPrice(BigDecimal.valueOf(789.0));
+        pizza1.setPrice(BigDecimal.valueOf(789.99));
         pizza1.setCategory(pizza);
         productRepository.save(pizza1);
 
@@ -383,5 +386,6 @@ public class FillingTests {
         drinksOther3.setPrice(BigDecimal.valueOf(89.99));
         drinksOther3.setCategory(otherDrinks);
         productRepository.save(drinksOther3);
+
     }
 }
