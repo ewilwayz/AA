@@ -53,5 +53,14 @@ public class AppService {
         PageRequest pageable = PageRequest.of(0, limit);
         return orderProductRepository.findMostPopularProducts(pageable);
     }
+
+    public Product getProductById(int productId) {
+        return productRepository.findProductById(productId);
+    }
+
+    public List<Product> getCategoryProducts(String userText) {
+        return productRepository.findProductsByCategoryName(userText);
+    }
 }
+
 

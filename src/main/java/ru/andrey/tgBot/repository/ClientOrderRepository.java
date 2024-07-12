@@ -13,4 +13,5 @@ import java.util.List;
 public interface ClientOrderRepository extends
         JpaRepository<ClientOrder, Long> {
     List<ClientOrder> findByClientId(Long id);
+    ClientOrder findActiveOrderByClientId(Long id);
 }
