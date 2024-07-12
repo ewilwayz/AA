@@ -124,7 +124,7 @@ public class FillingTests {
 
         //Создание подкатегории для других
         Category otherDrinks = new Category();
-        otherDrinks.setName("Другие напитки");
+        otherDrinks.setName("Другие");
         otherDrinks.setParent(drinks);
         categoryRepository.save(otherDrinks);
 
