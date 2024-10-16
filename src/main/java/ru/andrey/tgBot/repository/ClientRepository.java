@@ -10,4 +10,6 @@ import ru.andrey.tgBot.entity.Client;
 )
 public interface ClientRepository extends
         JpaRepository<Client, Long>
-{ }
+{
+    Client findByExternalId(long chatId);
+}

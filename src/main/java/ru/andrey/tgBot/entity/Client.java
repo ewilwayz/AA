@@ -20,6 +20,13 @@ public class Client {
     @Column(nullable = false, length = 400)
     private String address;
 
+    public Client() {
+        this.externalId = externalId;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
     public Long getId() {
         return id;
     }
