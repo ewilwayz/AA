@@ -22,4 +22,11 @@ public interface CategoryRepository extends
 
     @Query("SELECT c FROM Category c WHERE c.parent.id = :parentId")
     List<Category> findCategoriesByParentId(@Param("parentId") Long parentId);
+
+    List<Category> findByParentId(Long parentId);
+
+    @Query("select id " +
+            "from Category c " +
+            "where c.name = :name")
+    Long findFirstIdByName(String name);
 }

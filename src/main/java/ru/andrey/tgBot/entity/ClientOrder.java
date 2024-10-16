@@ -19,6 +19,12 @@ public class ClientOrder {
     @Column(nullable = false, precision = 15, scale = 2)
     private BigDecimal total;
 
+    public ClientOrder(Client client, Integer status, BigDecimal total) {
+        this.client = client;
+        this.status = status;
+        this.total = total;
+    }
+
     public Long getId() {
         return id;
     }

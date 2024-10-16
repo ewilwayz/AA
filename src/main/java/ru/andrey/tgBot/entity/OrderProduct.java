@@ -20,6 +20,12 @@ public class OrderProduct {
     @Column(nullable = false)
     private Integer countProduct;
 
+    public OrderProduct(ClientOrder clientOrder, Product product, Integer countProduct) {
+        this.clientOrder = clientOrder;
+        this.product = product;
+        this.countProduct = countProduct;
+    }
+
     public Long getId() {
         return id;
     }

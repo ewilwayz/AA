@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import ru.andrey.tgBot.entity.ClientOrder;
 import ru.andrey.tgBot.entity.OrderProduct;
 import ru.andrey.tgBot.entity.Product;
 
@@ -27,4 +28,8 @@ public interface OrderProductRepository extends
             "group by op.product " +
             "order by sum(op.countProduct) desc")
     List<Product> findMostPopularProducts(PageRequest pageable);
+
+    List<OrderProduct> findByClientOrder(ClientOrder clientOrder);
+
+    OrderProduct findProductByClientOrderId(Long clientOrderId, Long productId);
 }
